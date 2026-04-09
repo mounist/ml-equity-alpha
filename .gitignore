@@ -8,10 +8,8 @@ build/
 # Virtual environment
 .venv/
 
-# Data files (too large for git)
-artifacts/data/
-artifacts/results/final_model.pkl
-artifacts/results/oof_predictions.parquet
+# Artifacts — all generated outputs (data, models, figures, results)
+artifacts/
 
 # Logs
 *.log
