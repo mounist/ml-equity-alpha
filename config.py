@@ -3,13 +3,14 @@ Global configuration for the ML Equity Alpha pipeline.
 All constants, paths, and hyperparameter defaults live here.
 """
 
+import os
 from pathlib import Path
 
 # ── Reproducibility ──────────────────────────────────────────────────────────
 SEED = 42
 
 # ── WRDS ─────────────────────────────────────────────────────────────────────
-WRDS_USERNAME = "mounist"
+WRDS_USERNAME = os.environ.get("WRDS_USERNAME", "")
 
 # ── Date boundaries ──────────────────────────────────────────────────────────
 START_DATE = "2000-01-01"

@@ -14,14 +14,12 @@ artifacts/
 # Logs
 *.log
 
-# IDE
+# IDE and tool caches
 .idea/
 .vscode/
+.claude/
 *.swp
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Claude
-.claude/

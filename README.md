@@ -70,7 +70,7 @@ All inputs come from **Wharton Research Data Services (WRDS)**:
 - **IBES** — analyst actuals (`ibes.actu_epsus`) and summary statistics (`ibes.statsum_epsus`) for earnings surprise construction.
 - **Fama–French** — monthly research factors (`ff.factors_monthly`) for attribution.
 
-No credentials, data dumps, or proprietary files are included in this repository. Users must have their own WRDS subscription. The WRDS username is read from `config.py`; authentication follows the standard `wrds` Python package flow (via `.pgpass` or interactive prompt) — credentials are never committed. All downloaded data is cached locally as Parquet under `artifacts/data/`, which is git-ignored.
+No credentials, data dumps, or proprietary files are included in this repository. Users must have their own WRDS subscription. The WRDS username is read from the `WRDS_USERNAME` environment variable (see setup below); authentication follows the standard `wrds` Python package flow (via `.pgpass` or interactive prompt) — credentials are never committed. All downloaded data is cached locally as Parquet under `artifacts/data/`, which is git-ignored.
 
 ## Setup & Usage
 
@@ -90,7 +90,17 @@ source .venv/bin/activate          # on Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Edit `config.py` to set your WRDS username and (optionally) adjust the date boundaries, CV settings, or transaction-cost assumption.
+Set the `WRDS_USERNAME` environment variable before running the pipeline. The `wrds` package will prompt for the password on first run and cache it via `.pgpass`.
+
+```bash
+# Windows PowerShell
+$env:WRDS_USERNAME = "your_username"
+
+# macOS / Linux
+export WRDS_USERNAME=your_username
+```
+
+Optionally edit `config.py` to adjust date boundaries, CV settings, or the transaction-cost assumption.
 
 ### Run
 
